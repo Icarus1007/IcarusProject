@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatbot Abi</title>
+<style>
+/* Style the chatbot window */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+#chatbotContainer {
+    width: 350px;
+    max-height: 500px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#chatbotHeader {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+#chatContent {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+#messageContainer {
+    margin-bottom: 10px;
+}
+#buttonContainer {
+    padding: 10px;
+    background-color: #e1e1e1;
+}
+.faqButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+}
+.faqButton:hover {
+    background-color: #45a049;
+}
+</style>
+</head>
+<body>
+
+<div id="chatbotContainer">
+    <div id="chatbotHeader">Abi</div>
+    <div id="chatContent">
+        <div id="messageContainer">
+            <p>Klõpsa allolevatel teemadel, et saada vastuseid:</p>
+        </div>
+    </div>
+    <div id="buttonContainer">
+        <div class="faqButton" onclick="sendFaq('jalaseen')">Jalaseen</div>
+        <div class="faqButton" onclick="sendFaq('sissekasvanud varbaküüs')">Sissekasvanud varbaküüs</div>
+        <div class="faqButton" onclick="sendFaq('kannalõhed')">Kannalõhed</div>
+        <div class="faqButton" onclick="sendFaq('teenused')">Meie teenused</div>
+        <div class="faqButton" onclick="sendFaq('hinnad')">Teenuste hinnad</div>
+        <div class="faqButton" onclick="sendFaq('asukoht')">Meie asukoht</div>
+        <div class="faqButton" onclick="sendFaq('broneerimine')">Broneerimine</div>
+    </div>
+</div>
+
+<script>
+const faqData = {
+    "jalaseen": "Jalaseen tekib sageli liigse higistamise ja niiskuse tõttu. Ennetamine hõlmab jalgade põhjalikku kuivatamist ja hingavate jalanõude kandmist.",
+    "sissekasvanud varbaküüs": "Sissekasvanud varbaküüs on sageli tingitud valest küünte lõikamisest ja kitsastest jalanõudest. Selle vältimiseks lõigake küüned sirgelt ja kandke mugavaid jalanõusid.",
+    "kannalõhed": "Kannalõhed võivad tekkida kuiva naha ja ebapiisava niisutamise tõttu. Regulaarne kreemitamine ja mugavate jalanõude kandmine aitab seda ennetada.",
+    "teenused": "Pakume jalahooldusteenuseid, sealhulgas lõõgastav jalahooldus (55 €), probleemsete jalgade hooldus (65 €) ja ravipediküür (45 €). Broneerige aeg helistades +372 5850 2300.",
+    "hinnad": "Meie teenuste hinnad: lõõgastav jalahooldus 55 €, probleemsete jalgade hooldus 65 €, ravipediküür 45 €.",
+    "asukoht": "Asume Merimetsa Tervisekeskuses, 4. korrusel, kabinet 437. Aadress: Paldiski mnt 68a, 10617 Tallinn. Tasuta parkimine on saadaval ning ühistranspordipeatus on maja ees (peatus: Humala).",
+    "broneerimine": "Aja broneerimiseks helistage meile: +372 5850 2300. Meil on võimalik tasuda ainult sularahas."
+};
+
+function sendFaq(topic) {
+    const messageContainer = document.getElementById('messageContainer');
+    messageContainer.innerHTML = `<p>Abi: ${faqData[topic]}</p>`;
+}
+</script>
+
+</body>
+</html>
